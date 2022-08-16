@@ -1,5 +1,5 @@
 {
-    "name": "hitbtc-com/hitbtc-php-sdk",
+    "name": "startusin/hitbtc-php-sdk",
     "description": "HitBTC SDK for PHP",
     "type" : "library",
     "minimum-stability": "dev",
