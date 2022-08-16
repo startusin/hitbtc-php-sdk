@@ -1,6 +1,6 @@
 {
     "name": "startusin/hitbtc-php-sdk",
-    "description": "HitBTC SDK for PHP",
+    "description": "HitBTC SDK for PHP Guzzle 7.2+",
     "type" : "library",
     "minimum-stability": "dev",
     "license": "MIT",
