@@ -13,6 +13,8 @@
         "guzzlehttp/guzzle": "^7.2"
     },
     "autoload": {
-        "psr-0": {"Hitbtc": "src/"}
+        "psr-4": {
+            "Hitbtc\\": "src/"
+        }
     }
 }
