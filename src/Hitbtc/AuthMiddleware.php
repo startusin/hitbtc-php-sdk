@@ -25,12 +25,12 @@ class AuthMiddleware
     {
         return function (RequestInterface $request, array $options) use (&$handler) {
             $queryString = $request->getUri()->getQuery();
-            $queryParts = \GuzzleHttp\Psr7\parse_query($queryString);
+            $queryParts = \GuzzleHttp\Psr7\Query::parse($queryString);
 
             $queryParts['apikey'] = $this->publicKey;
             $queryParts['nonce'] = $this->getNonce();
 
-            $queryString = \GuzzleHttp\Psr7\build_query($queryParts);
+            $queryString = \GuzzleHttp\Psr7\Query::build($queryParts);
             $request = $request->withUri($request->getUri()->withQuery($queryString));
 
             $message = $request->getUri()->getPath(). '?' . $queryString . $request->getBody();
