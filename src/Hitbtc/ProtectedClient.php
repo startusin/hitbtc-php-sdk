@@ -394,10 +394,10 @@ class ProtectedClient
         $query = array(
             'offset' => $offset,
             'limit' => $limit,
-            'dir' => $sort
+            'sort' => $sort
         );
 
-        $response = $this->getHttpClient()->get('/api/1/payment/transactions', array('query' => $query, 'exceptions' => false));
+        $response = $this->getHttpClient()->get('/api/3/wallet/transactions', array('query' => $query, 'exceptions' => false));
         $document = json_decode($response->getBody(), true);
         if (isset($document['transactions'])) {
             $transactions = [];
