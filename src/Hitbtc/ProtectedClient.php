@@ -398,16 +398,19 @@ class ProtectedClient
         );
 
         $response = $this->getHttpClient()->get('/api/3/wallet/transactions', array('query' => $query, 'exceptions' => false));
-        $document = json_decode($response->getBody(), true);
-        if (isset($document['transactions'])) {
-            $transactions = [];
-            foreach ($document['transactions'] as $txn) {
-                $transactions[] = $txn;
-            }
-
-            return $transactions;
+        
+        if (!$response) {
+            throw new InvalidRequestException($response->getBody());   
         }
-        throw new InvalidRequestException($response->getBody());
+        
+        $document = json_decode($response->getBody(), true);
+        $transactions = [];
+        
+        foreach ($document['transactions'] as $txn) {
+            $transactions[] = $txn;
+        }
+
+        return $transactions;
     }
 
 }
