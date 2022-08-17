@@ -403,14 +403,6 @@ class ProtectedClient
             throw new InvalidRequestException($response->getBody());   
         }
         
-        $document = json_decode($response->getBody(), true);
-        $transactions = [];
-        
-        foreach ($document['transactions'] as $txn) {
-            $transactions[] = $txn;
-        }
-
-        return $transactions;
+        return json_decode($response->getBody());
     }
-
 }
